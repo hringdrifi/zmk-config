@@ -1,0 +1,10 @@
+file_format: "1"
+id: segl
+name: Segl
+type: board
+arch: arm
+features:
+  - keys
+outputs:
+  - usb
+url: https://github.com/hringdrifi/segl

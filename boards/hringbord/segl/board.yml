@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: MIT
+
+board:
+  name: segl
+  vendor: hringbord
+  socs:
+    - name: rp2040
+      variants:
+        - name: zmk

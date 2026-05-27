@@ -1,0 +1,4 @@
+# SPDX-License-Identifier: MIT
+
+config BOARD_SEGL
+    select SOC_RP2040

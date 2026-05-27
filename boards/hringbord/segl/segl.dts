@@ -1,0 +1,111 @@
+/*
+ * SPDX-License-Identifier: MIT
+ */
+
+/dts-v1/;
+
+#include <raspberrypi/rpi_pico/rp2040.dtsi>
+#include <arm/raspberrypi/rp2040-boot-mode-retention.dtsi>
+#include <dt-bindings/zmk/matrix_transform.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+/ {
+    model = "Hringbord Segl";
+    compatible = "hringbord,segl";
+
+    chosen {
+        zephyr,sram = &sram0;
+        zephyr,flash = &flash0;
+        zephyr,flash-controller = &ssi;
+        zephyr,code-partition = &code_partition;
+        zmk,kscan = &kscan0;
+        zmk,matrix-transform = &default_transform;
+        zmk,physical-layout = &physical_layout0;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-charlieplex";
+        wakeup-source;
+        debounce-press-ms = <15>;
+        debounce-release-ms = <15>;
+        gpios
+            = <&gpio0 20 GPIO_ACTIVE_HIGH>
+            , <&gpio0 19 GPIO_ACTIVE_HIGH>
+            , <&gpio0 18 GPIO_ACTIVE_HIGH>
+            , <&gpio0 17 GPIO_ACTIVE_HIGH>
+            , <&gpio0 16 GPIO_ACTIVE_HIGH>
+            , <&gpio0 3 GPIO_ACTIVE_HIGH>
+            , <&gpio0 9 GPIO_ACTIVE_HIGH>
+            , <&gpio0 10 GPIO_ACTIVE_HIGH>
+            , <&gpio0 11 GPIO_ACTIVE_HIGH>
+            , <&gpio0 8 GPIO_ACTIVE_HIGH>
+            , <&gpio0 25 GPIO_ACTIVE_HIGH>
+            ;
+    };
+
+    default_transform: keymap_transform0 {
+        compatible = "zmk,matrix-transform";
+        rows = <11>;
+        columns = <11>;
+        map = <
+            RC(1,2)  RC(1,3)  RC(1,4)  RC(1,5)  RC(1,6)  RC(1,7)  RC(1,8)  RC(5,1)  RC(5,2)  RC(5,3)  RC(5,4)  RC(5,6)  RC(5,7)  RC(5,8)
+            RC(2,1)  RC(2,3)  RC(2,4)  RC(2,5)  RC(2,6)  RC(2,7)  RC(2,8)  RC(6,1)  RC(6,2)  RC(6,3)  RC(6,4)  RC(6,5)  RC(6,7)  RC(6,8)  RC(8,7)
+            RC(3,1)  RC(3,2)  RC(3,4)  RC(3,5)  RC(3,6)  RC(3,7)  RC(3,8)  RC(7,1)  RC(7,2)  RC(7,3)  RC(7,4)  RC(7,5)  RC(7,6)  RC(7,8)
+            RC(4,1)  RC(4,2)  RC(4,3)  RC(4,5)  RC(4,6)  RC(4,7)  RC(4,8)  RC(8,1)  RC(8,2)  RC(8,3)  RC(8,4)  RC(8,5)  RC(8,6)
+            RC(0,1)  RC(0,2)  RC(0,3)  RC(0,4)  RC(0,5)  RC(0,6)  RC(0,7)  RC(9,2)  RC(9,3)  RC(9,4)  RC(9,5)  RC(9,6)  RC(9,7)  RC(9,8)
+            RC(10,1) RC(10,2) RC(10,3) RC(10,4) RC(10,5) RC(10,6) RC(10,7) RC(10,8) RC(10,9)
+        >;
+    };
+
+    physical_layout0: physical_layout_0 {
+        compatible = "zmk,physical-layout";
+        display-name = "Default";
+        kscan = <&kscan0>;
+        transform = <&default_transform>;
+    };
+};
+
+&usb {
+    status = "okay";
+};
+
+&uart0 {
+    status = "disabled";
+};
+
+&uart1 {
+    status = "disabled";
+};
+
+&timer {
+    status = "okay";
+};
+
+&rtc {
+    clocks = <&clocks RPI_PICO_CLKID_CLK_RTC>;
+    status = "okay";
+};
+
+&vreg {
+    regulator-always-on;
+    regulator-allowed-modes = <REGULATOR_RPI_PICO_MODE_NORMAL>;
+};
+
+&code_partition {
+    reg = <0x100 (DT_SIZE_M(2) - 0x100 - DT_SIZE_K(512))>;
+};
+
+&flash0 {
+    reg = <0x10000000 DT_SIZE_M(2)>;
+
+    partitions {
+        compatible = "fixed-partitions";
+        #address-cells = <1>;
+        #size-cells = <1>;
+
+        storage_partition: partition@180000 {
+            label = "storage";
+            reg = <0x180000 DT_SIZE_K(512)>;
+        };
+    };
+};
