@@ -17,20 +17,20 @@ GP20, GP19, GP18, GP17, GP16, GP3, GP9, GP10, GP11, GP8, GP25
 Build target:
 
 ```sh
-west build -p -b segl//zmk
+west build -p -b segl
 ```
 
 ZMK Studio build:
 
 ```sh
-west build -p -b segl//zmk -S studio-rpc-usb-uart -- -DCONFIG_ZMK_STUDIO=y
+west build -p -b segl -S studio-rpc-usb-uart -- -DCONFIG_ZMK_STUDIO=y
 ```
 
 In a `build.yaml`, use:
 
 ```yaml
 include:
-  - board: segl//zmk
+  - board: segl
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
 ```

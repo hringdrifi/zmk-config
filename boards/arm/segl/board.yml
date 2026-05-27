@@ -3,7 +3,6 @@
 board:
   name: segl
   vendor: hringbord
+  type: keyboard
   socs:
     - name: rp2040
-      variants:
-        - name: zmk

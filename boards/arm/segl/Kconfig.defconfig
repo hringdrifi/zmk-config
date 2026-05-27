@@ -2,6 +2,9 @@
 
 if BOARD_SEGL
 
+config BOARD
+    default "segl"
+
 config ZMK_KEYBOARD_NAME
     default "Segl"
 
