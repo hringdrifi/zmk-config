@@ -81,7 +81,7 @@ zephyr_udc0: &usbd {
 };
 
 &flash0 {
-    reg = <0x10000000 DT_SIZE_M(2)>;
+    reg = <0x10000000 DT_SIZE_M(16)>;
 
     partitions {
         compatible = "fixed-partitions";
@@ -90,12 +90,12 @@ zephyr_udc0: &usbd {
 
         code_partition: partition@100 {
             label = "code_partition";
-            reg = <0x100 (DT_SIZE_M(2) - 0x100 - DT_SIZE_K(512))>;
+            reg = <0x100 (DT_SIZE_M(16) - 0x100 - DT_SIZE_K(512))>;
         };
 
-        storage_partition: partition@180000 {
+        storage_partition: partition@f80000 {
             label = "storage";
-            reg = <0x180000 DT_SIZE_K(512)>;
+            reg = <0xF80000 DT_SIZE_K(512)>;
         };
     };
 };

@@ -14,6 +14,10 @@ GPIO order:
 GP20, GP19, GP18, GP17, GP16, GP3, GP9, GP10, GP11, GP8, GP25
 ```
 
+The board is configured for a 16MB W25Q128JVP QSPI flash. The RP2040 boot2
+selection uses Zephyr's generic `03h` flash bootloader, and ZMK settings storage
+is placed in the final 512KB of flash.
+
 Build target:
 
 ```sh
