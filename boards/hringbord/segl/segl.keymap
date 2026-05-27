@@ -14,6 +14,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
+            display-name = "Base";
             bindings = <
                 &kp ESC     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12     &kp DELETE
                 &kp GRAVE   &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp MINUS   &kp EQUAL   &kp BSPC    XXXXX
@@ -25,14 +26,23 @@
         };
 
         function_layer {
+            display-name = "Fn";
             bindings = <
-                &bootloader  &kp C_MUTE  &kp C_VOL_DN &kp C_VOL_UP _____       &kp C_PP    _____       &kp C_BRI_DN &kp C_BRI_UP &kp PSCRN   &kp SLCK    &kp PAUSE_BREAK &kp INSERT _____
+                &bootloader  &kp C_MUTE  &kp C_VOL_DN &kp C_VOL_UP _____       &kp C_PP    _____       &kp C_BRI_DN &kp C_BRI_UP &kp PSCRN   &kp SLCK    &kp PAUSE_BREAK &kp INSERT &studio_unlock
                 _____        _____       _____        _____        _____       _____       _____       _____        _____        _____      _____      _____        _____      _____      _____
                 _____        _____       _____        _____        _____       &kp LC(T)   _____       &kp LC(U)    &kp LC(I)    &kp LC(O)  &kp LC(P)  _____        _____      _____
                 _____        &kp LC(A)   &kp LC(S)    _____        _____       _____       _____       _____        _____        _____      _____      _____        _____
                 _____        _____       &kp LC(Z)    &kp LC(X)    &kp LC(C)   &kp LC(V)   &kp LC(N)   _____        _____        _____      _____      _____        &kp PAGE_UP _____
                 _____        _____       _____        _____        _____       _____       &kp HOME     &kp PAGE_DOWN &kp END
             >;
+        };
+
+        extra_1 {
+            status = "reserved";
+        };
+
+        extra_2 {
+            status = "reserved";
         };
     };
 };

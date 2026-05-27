@@ -19,3 +19,21 @@ Build target:
 ```sh
 west build -p -b segl//zmk
 ```
+
+ZMK Studio build:
+
+```sh
+west build -p -b segl//zmk -S studio-rpc-usb-uart -- -DCONFIG_ZMK_STUDIO=y
+```
+
+In a `build.yaml`, use:
+
+```yaml
+include:
+  - board: segl//zmk
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
+```
+
+The default Studio unlock key is `Fn` + `Delete`, matching the final key on
+the function layer top row.

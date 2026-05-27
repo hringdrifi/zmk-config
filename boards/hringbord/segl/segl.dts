@@ -9,6 +9,8 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <zephyr/dt-bindings/gpio/gpio.h>
 
+#include "segl-layouts.dtsi"
+
 / {
     model = "Hringbord Segl";
     compatible = "hringbord,segl";
@@ -19,7 +21,6 @@
         zephyr,flash-controller = &ssi;
         zephyr,code-partition = &code_partition;
         zmk,kscan = &kscan0;
-        zmk,matrix-transform = &default_transform;
         zmk,physical-layout = &physical_layout0;
     };
 
@@ -57,15 +58,9 @@
         >;
     };
 
-    physical_layout0: physical_layout_0 {
-        compatible = "zmk,physical-layout";
-        display-name = "Default";
-        kscan = <&kscan0>;
-        transform = <&default_transform>;
-    };
 };
 
-&usb {
+zephyr_udc0: &usb {
     status = "okay";
 };
 
