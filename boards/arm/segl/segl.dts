@@ -4,7 +4,7 @@
 
 /dts-v1/;
 
-#include <raspberrypi/rpi_pico/rp2040.dtsi>
+#include <raspberrypi/rp2040.dtsi>
 #include <arm/raspberrypi/rp2040-boot-mode-retention.dtsi>
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <zephyr/dt-bindings/gpio/gpio.h>
@@ -74,16 +74,6 @@ zephyr_udc0: &usb {
 
 &timer {
     status = "okay";
-};
-
-&rtc {
-    clocks = <&clocks RPI_PICO_CLKID_CLK_RTC>;
-    status = "okay";
-};
-
-&vreg {
-    regulator-always-on;
-    regulator-allowed-modes = <REGULATOR_RPI_PICO_MODE_NORMAL>;
 };
 
 &code_partition {
