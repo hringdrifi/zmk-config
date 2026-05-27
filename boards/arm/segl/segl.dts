@@ -4,7 +4,7 @@
 
 /dts-v1/;
 
-#include <raspberrypi/rp2040.dtsi>
+#include <rpi_pico/rp2040.dtsi>
 #include <arm/raspberrypi/rp2040-boot-mode-retention.dtsi>
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <zephyr/dt-bindings/gpio/gpio.h>
@@ -18,10 +18,15 @@
     chosen {
         zephyr,sram = &sram0;
         zephyr,flash = &flash0;
-        zephyr,flash-controller = &ssi;
         zephyr,code-partition = &code_partition;
         zmk,kscan = &kscan0;
         zmk,physical-layout = &physical_layout0;
+    };
+
+    xtal_clk: xtal-clk {
+        compatible = "fixed-clock";
+        clock-frequency = <12000000>;
+        #clock-cells = <0>;
     };
 
     kscan0: kscan {
