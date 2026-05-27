@@ -80,10 +80,6 @@ zephyr_udc0: &usbd {
     status = "okay";
 };
 
-&code_partition {
-    reg = <0x100 (DT_SIZE_M(2) - 0x100 - DT_SIZE_K(512))>;
-};
-
 &flash0 {
     reg = <0x10000000 DT_SIZE_M(2)>;
 
@@ -91,6 +87,11 @@ zephyr_udc0: &usbd {
         compatible = "fixed-partitions";
         #address-cells = <1>;
         #size-cells = <1>;
+
+        code_partition: partition@100 {
+            label = "code_partition";
+            reg = <0x100 (DT_SIZE_M(2) - 0x100 - DT_SIZE_K(512))>;
+        };
 
         storage_partition: partition@180000 {
             label = "storage";
