@@ -25,3 +25,6 @@ include:
     artifact-name: segl_studio
   - board: seeeduino_xiao_ble
     shield: xiao_ble_tweezer
+    artifact-name: xiao_ble_tweezer_studio
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
