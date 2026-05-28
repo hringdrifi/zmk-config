@@ -3,6 +3,6 @@
 if SHIELD_XIAO_BLE_TWEEZER
 
 config ZMK_KEYBOARD_NAME
-    default "XIAO BLE Tweezer"
+    default "Tweezer"
 
 endif
