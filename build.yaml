@@ -24,6 +24,9 @@ include:
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: segl_studio
   - board: seeeduino_xiao_ble
+    shield: settings_reset
+    artifact-name: seeeduino_xiao_ble_settings_reset
+  - board: seeeduino_xiao_ble
     shield: xiao_ble_tweezer
     artifact-name: xiao_ble_tweezer_studio
     snippet: studio-rpc-usb-uart
