@@ -31,3 +31,7 @@ include:
     artifact-name: xiao_ble_tweezer_studio
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_STUDIO_LOCKING=n
+  - board: nice_nano_v2
+    shield: smi_r_demo_corne_left
+  - board: nice_nano_v2
+    shield: smi_r_demo_corne_right

@@ -1,0 +1,11 @@
+file_format: "1"
+id: smi_r_demo_corne
+name: "Smiðr Demo Corne"
+type: shield
+requires:
+  - pro_micro
+features:
+  - keys
+siblings:
+  - smi_r_demo_corne_left
+  - smi_r_demo_corne_right
