@@ -1,0 +1,8 @@
+# Copyright (c) 2026 Smidr
+# SPDX-License-Identifier: MIT
+
+config SHIELD_SMIDR_CORNE_LEFT
+    def_bool $(shields_list_contains,smidr_corne_left)
+
+config SHIELD_SMIDR_CORNE_RIGHT
+    def_bool $(shields_list_contains,smidr_corne_right)

@@ -1,4 +1,4 @@
-#include "smi_r_demo_corne.dtsi"
+#include "smidr_corne.dtsi"
 
 &default_transform {
     col-offset = <6>;

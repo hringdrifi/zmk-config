@@ -1,8 +1,0 @@
-# Copyright (c) 2026 Smiðr
-# SPDX-License-Identifier: MIT
-
-config SHIELD_SMI_R_DEMO_CORNE_LEFT
-    def_bool $(shields_list_contains,smi_r_demo_corne_left)
-
-config SHIELD_SMI_R_DEMO_CORNE_RIGHT
-    def_bool $(shields_list_contains,smi_r_demo_corne_right)
